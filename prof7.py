@@ -1,8 +1,9 @@
 import tkinter as tk
-
 # Fonction de vérification
 def check_data():
     messages = []
+    
+  
 
     # Vérification profession et date
     if profession_entry.get().strip().lower() == "douanier" and date_entry.get().strip() == "1805":
@@ -32,6 +33,20 @@ def check_data():
 Un de vos ancêtres a pu être en rapport avec la justice :
 - Soit à travers sa profession : Notaire, avocat, huissier, avoué, commissaire-priseur, juge...
 - Soit dans le cadre de procès comme partie prenante (ex : divorce, successions litigieuses).""")
+# Vérification militaire
+    militaire_reponse = militaire_entry.get().strip().lower()
+    if militaire_reponse == "oui":
+        messages.append("Dès 1665 on trouvera des registres par régiments avec description physique et évènemnt comme blessure, decès, désertion.")
+    elif militaire_reponse == "non":
+        messages.append("Voir à d'autres dates.")
+# Vérification militaire
+    militairebis_reponse = militairebis_entry.get().strip().lower()
+    if militairebis_reponse == "oui":
+        messages.append("Avant 1665 on ne trouvera guère que des armoriaux avec parfois le nom des régiments et des livres d'histoire.")
+    elif militairebis_reponse == "non":
+        messages.append("Voir à d'autres dates.")
+
+
 
     if messages:
         result_label.config(text=messages.pop(0))
@@ -46,6 +61,14 @@ def display_next_message(messages):
         check_button.config(command=lambda: display_next_message(messages))
     else:
         check_button.config(command=check_data)
+        
+ 
+        
+        
+        
+        
+        
+        
 
 # Création de la fenêtre principale
 root = tk.Tk()
@@ -59,24 +82,35 @@ profession_entry = tk.Entry(root, width=50)
 profession_entry.grid(row=0, column=1)
 
 date_label = tk.Label(root, text="Date :", fg="white", bg="blue")
-date_label.grid(row=1, column=0)
+date_label.grid(row=2, column=0)
 date_entry = tk.Entry(root, width=50)
-date_entry.grid(row=1, column=1)
+date_entry.grid(row=2, column=1)
 
 lieu_label = tk.Label(root, text="Lieu :", fg="white", bg="blue")
-lieu_label.grid(row=2, column=0)
+lieu_label.grid(row=3, column=0)
 lieu_entry = tk.Entry(root, width=50)
-lieu_entry.grid(row=2, column=1)
+lieu_entry.grid(row=3, column=1)
 
 acte_label = tk.Label(root, text="Acte d'état civil (Oui/Non) :", fg="white", bg="blue")
-acte_label.grid(row=3, column=0)
+acte_label.grid(row=4, column=0)
 acte_entry = tk.Entry(root, width=50)
-acte_entry.grid(row=3, column=1)
+acte_entry.grid(row=4, column=1)
 
 archives_label = tk.Label(root, text="Archives judiciaires ? (Oui/Non) :", fg="white", bg="blue")
-archives_label.grid(row=4, column=0)
+archives_label.grid(row=5, column=0)
 archives_entry = tk.Entry(root, width=50)
-archives_entry.grid(row=4, column=1)
+archives_entry.grid(row=5, column=1)
+
+militaire_label= tk.Label(root, text=" Militaire apres 1665  ", fg="white", bg="blue")
+militaire_label.grid(row=8, column=0, padx=6,pady=6)
+militaire_entry = tk.Entry(root, width=50)
+militaire_entry.grid(row=8, column=1,padx=6,pady=6)
+
+militairebis_label= tk.Label(root, text=" Militaire avant 1665  ", fg="white", bg="blue")
+militairebis_label.grid(row=9, column=0, padx=6,pady=6)
+militairebis_entry = tk.Entry(root, width=50)
+militairebis_entry.grid(row=9, column=1,padx=6,pady=6)
+
 
 # Ajout de la Listbox pour les mots-clés, placée à droite des champs de saisie
 listbox_label = tk.Label(root, text="Lexique généalogique :", fg="white", bg="green")
@@ -108,13 +142,13 @@ listbox.bind("<<ListboxSelect>>", show_explanation)
 
 # Label pour afficher les explications des mots-clés
 explanation_label = tk.Label(root, text="Sélectionnez un mot pour voir son explication.", fg="black", wraplength=300)
-explanation_label.grid(row=5, column=2)
+explanation_label.grid(row=8, column=2)
 
 check_button = tk.Button(root, text="Vérifier", command=check_data)
-check_button.grid(row=5, column=0, columnspan=2)
+check_button.grid(row=10, column=0, columnspan=2)
 
 result_label = tk.Label(root, text="", fg="black", wraplength=700)
-result_label.grid(row=6, column=0, columnspan=3)
+result_label.grid(row=11, column=0, columnspan=3)
 
 # Lancer la boucle principale
 root.mainloop()
