@@ -1,17 +1,15 @@
 
-
-
 import os
 from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/test/<xxx>')
-def check_value(xxx):
-    if xxx == "hello":
-        return "helli"
-    else:
-        return f"Tu as envoyé : {xxx}"
+@app.route('/')
+def hello():
+    return "Hello Hello hello"
+    
+    
+    
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))  # Render impose un port
