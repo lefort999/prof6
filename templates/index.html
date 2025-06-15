@@ -1,9 +1,48 @@
-Flask   
-<h2>Lexique g√©n√©alogique :</h2>
-<ul>
-    <li>Terrier : Ancien registre foncier qui recense les propri√©t√©s et leurs propri√©taires.</li>
-    <li>Censier : Document d√©crivant les obligations d‚Äôun paysan envers un seigneur.</li>
-    <li>Tabellion : Notaire m√©di√©val charg√© de la r√©daction des actes.</li>
-    <li>Testament : Document pr√©cisant la transmission des biens apr√®s d√©c√®s.</li>
-    <li>Cur√© : Responsable paroissial ayant souvent tenu des registres d‚Äô√©tat civil.</li>
-</ul>
+Flask 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VÈrification des donnÈes</title>
+</head>
+<body>
+    <h1>VÈrification des donnÈes et lexique gÈnÈalogique</h1>
+    
+    <form method="POST">
+        <label for="profession">Profession :</label>
+        <input type="text" name="profession"><br>
+
+        <label for="date">Date :</label>
+        <input type="text" name="date"><br>
+
+        <label for="lieu">Lieu :</label>
+        <input type="text" name="lieu"><br>
+
+        <label for="acte">Acte d'Ètat civil (Oui/Non) :</label>
+        <input type="text" name="acte"><br>
+
+        <label for="archives">Archives judiciaires ? (Oui/Non) :</label>
+        <input type="text" name="archives"><br>
+
+        <label for="militaire">Militaire aprËs 1665 ? (Oui/Non) :</label>
+        <input type="text" name="militaire"><br>
+
+        <label for="militairebis">Militaire avant 1665 ? (Oui/Non) :</label>
+        <input type="text" name="militairebis"><br>
+
+        <button type="submit">VÈrifier</button>
+    </form>
+
+    {% if messages %}
+        <h2>RÈsultats :</h2>
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
+  
+
