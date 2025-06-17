@@ -1,11 +1,9 @@
-
-
 app = Flask(__name__)
 
 @app.route('/')
 def hello():
     return "Hello Hello"
-    Add commentMore actions
+    
     
 @app.route('/test/<xxx>')
 def check_value(xxx):
