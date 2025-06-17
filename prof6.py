@@ -21,11 +21,11 @@ def profession():
     if request.method == "POST":
         profession = request.form.get("profession").lower()
         if profession == "militaire":
-            message = f"Votre profession est : {profession}. {lire_texte('militaire.txt')}"
+            message = f"cette rubrique concerne le : {profession}. {lire_texte('militaire.txt')}"
         elif profession == "fisc":
-            message = f"Votre profession est : {profession}. {lire_texte('fisc.txt')}"
+            message = f"cette rubrique concerne le : {profession}. {lire_texte('fisc.txt')}"
         else:
-            message = f"Votre profession est : {profession}."
+            message = f"cette rubrique concerne le : {profession}."
     return render_template("index.html", message=message)
 
 if __name__ == "__main__":
