@@ -1,1 +1,20 @@
-Original file line numberDiff line numberDiff line change@@ -1,15 +1,19 @@import osfrom flask import Flaskapp = Flask(__name__)@app.route('/')Add commentMore actionsdef hello():    return "Hello Hello"        @app.route('/test/<xxx>')def check_value(xxx):    if xxx == "hello":        return "helli"    else:        return f"Tu as envoyé : {xxx}"if __name__ == "__main__":    port = int(os.environ.get("PORT", 5000)  # Render impose un port    app.run(host="0.0.0.0", port=port)Add comment
+@@ -4,12 +4,16 @@
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return "Hello Hello"
+    Add commentMore actions
+    
+@app.route('/test/<xxx>')
+def check_value(xxx):
+    if xxx == "hello":
+        return "helli"
+    else:
+        return f"Tu as envoyé : {xxx}"
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Render impose un port
+    app.run(host="0.0.0.0", port=port)
+Add comment
