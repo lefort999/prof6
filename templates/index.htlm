@@ -2,189 +2,258 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Moteur Généalogique</title>
+    <title>Bienvenue</title>
     <style>
         body {
+            font-size: 18px;
             font-family: Arial, sans-serif;
-            background-color: #f3f3f3;
-            padding: 30px;
-            text-align: center;
-            color: #2c3e50;
+            line-height: 1.6;
         }
 
-        .container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 50px;
+        h1 {
+            font-size: 28px;
+            font-family: "Edwardian Script ITC", cursive;
         }
 
-        form {
-            background-color: #ffffff;
-            padding: 25px;
+        .recit-box {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 20px;
+            border: 2px solid #aaa;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            min-width: 320px;
-            flex: 1;
-            max-width: 500px;
-        }
-
-        label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="number"] {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-        }
-
-        .checkboxes label {
-            font-weight: normal;
-            display: block;
-            margin-top: 5px;
+            background-color: #fdfdfd;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            font-size: 18px;
+            font-family: Georgia, serif;
+            line-height: 1.6;
+            margin-top: 20px;
         }
 
         button {
             margin-top: 20px;
-            width: 100%;
-            padding: 10px;
-            background-color: #2980b9;
-            color: white;
-            border: none;
-            border-radius: 5px;
+            padding: 10px 15px;
             font-size: 16px;
+            cursor: pointer;
         }
 
-        .scroll-zone {
-            max-height: 300px;
-            overflow-y: auto;
-            background-color: #fdfdfd;
-            border: 1px solid #ccc;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            text-align: left;
-            white-space: pre-wrap;
-            font-family: monospace;
+        .image-row {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .image-row img {
+            width: 150px;
+            border: 1px solid #888;
         }
     </style>
 </head>
 <body>
-    <h1>🔎 Moteur Généalogique Unifié</h1>
+    <h1>Voici une image avec le texte !</h1>
 
-    <div class="container">
-        <!-- Analyse Généalogique -->
-        <form method="post" action="/analyse">
-           <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
-    <label for="profession" style="min-width: 140px;">Profession :</label>
-    <input type="text" id="profession" name="profession" placeholder="ex: Douanier" style="flex: 1;">
-</div>
-
-<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
-    <label for="naissance" style="min-width: 140px;">Année de naissance :</label>
-    <input type="number" id="naissance" name="naissance" placeholder="ex: 1882" style="flex: 1;">
-</div>
-
-<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
-    <label for="mariage" style="min-width: 140px;">Année de mariage :</label>
-    <input type="number" id="mariage" name="mariage" placeholder="ex: 1910" style="flex: 1;">
-</div>
-
-<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
-    <label for="deces" style="min-width: 140px;">Année de décès :</label>
-    <input type="number" id="deces" name="deces" placeholder="ex: 1954" style="flex: 1;">
-</div>
-
-<!-- 🔍 Lieux et codes postaux -->
-
-<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
-    <label for="lieu_naissance" style="min-width: 140px;">Lieu de naissance :</label>
-    <input type="text" id="lieu_naissance" name="lieu_naissance" placeholder="ex: Massy" style="flex: 1;">
-</div>
-
-<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
-    <label for="cp_naissance" style="min-width: 140px;">CP naissance :</label>
-    <input type="text" id="cp_naissance" name="cp_naissance" placeholder="ex: 91300" style="flex: 1;">
-</div>
-
-<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
-    <label for="lieu_mariage" style="min-width: 140px;">Lieu de mariage :</label>
-    <input type="text" id="lieu_mariage" name="lieu_mariage" placeholder="ex: Versailles" style="flex: 1;">
-</div>
-
-<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
-    <label for="cp_mariage" style="min-width: 140px;">CP mariage :</label>
-    <input type="text" id="cp_mariage" name="cp_mariage" placeholder="ex: 78000" style="flex: 1;">
-</div>
-
-<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
-    <label for="lieu_deces" style="min-width: 140px;">Lieu de décès :</label>
-    <input type="text" id="lieu_deces" name="lieu_deces" placeholder="ex: Paris" style="flex: 1;">
-</div>
-
-<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
-    <label for="cp_deces" style="min-width: 140px;">CP décès :</label>
-    <input type="text" id="cp_deces" name="cp_deces" placeholder="ex: 75000" style="flex: 1;">
-</div>
-
-<div style="display: flex; align-items: center; gap: 15px; margin-top: 20px; margin-bottom: 12px;">
-    <label for="caracteristiques" style="min-width: 140px;">Caractéristiques :</label>
-    <select id="caracteristiques" name="caracteristiques" multiple size="5" style="flex: 1; padding:8px; border-radius:5px; border:1px solid #ccc; background-color:#fff;">
-        <option value="militaire">Militaire</option>
-        <option value="blesse">Blesse</option>
-        <option value="officier">Officier</option>
-        <option value="celibataire">Célibataire</option>
-        <option value="etatcivil">Acte d'état civil complet</option>
-    </select>
-</div>
-           <!-- 🔽 Liste déroulante de professions documentables -->
-<div style="display: flex; align-items: center; gap: 15px; margin-top: 20px; margin-bottom: 12px;">
-    <label for="documentation" style="min-width: 140px;">Professions à documenter :</label>
-    <select id="documentation" name="documentation" multiple size="5" style="flex: 1; padding:8px; border-radius:5px; border:1px solid #ccc; background-color:#fff;">
-        <option value="militaire">Militaire</option>
-        <option value="fisc">Fisc</option>
-        <option value="cadastre">Cadastre</option>
-        <option value="police">Police</option>
-        <option value="notaire">Notaire</option>
-        <option value="administration">Administration</option>
-        <option value="enigme">Énigme</option>
-    </select>
-</div>
-<small style="color:#555;">💡 Astuce : utilisez Ctrl (Cmd sur Mac) pour sélection multiple</small>
-
-            <button type="submit">Analyser</button>
-
-            <!-- Partie à interpréter par un moteur de template -->
-            <!-- Exemple : Flask / Django -->
-            {% if message %}
-            <div class="scroll-zone">{{ message|safe }}</div>
-            {% endif %}
-        </form>
-
-        <!-- Lecture de rubrique -->
-        <form method="post" action="/profession">
-            <h2>Lecture de rubrique</h2>
-            <label for="lecture">Rubrique à afficher :</label>
-<select name="lecture" id="lecture" required style="padding:8px; border-radius:5px; border:1px solid #ccc; background-color:#fff;">
-    <option value="">-- Choisir une rubrique --</option>
-    <option value="militaire">Militaire</option>
-    <option value="fisc">Fisc</option>
-    <option value="cadastre">Cadastre</option>
-    <option value="police">Police</option>
-    <option value="notaire">Notaire</option>
-    <option value="administration">Administration</option>
-    <option value="enigme">Énigme</option>
-</select>
-            <button type="submit">Afficher rubrique</button>
-
-            {% if lecture_result %}
-            <div class="scroll-zone">{{ lecture_result }}</div>
-            {% endif %}
-        </form>
+    <!-- Boîte image + intro avec deux images côte à côte -->
+    <div style="border: 1px solid #ccc; padding: 20px; margin: 20px; background-color: #fdfdfd;">
+        <div class="image-row">
+            <img src="{{ url_for('static', filename='severin.jpg') }}" alt="Severin">
+            <img src="{{ url_for('static', filename='tonkin.jpg') }}" alt="Médaille Tonkin">
+        </div>
+        <p>
+            Photo de Séverin Werlin, mon grand-père maternel, accompagné de sa médaille du Tonkin.
+        </p>
     </div>
+
+    <!-- Bouton pour afficher/masquer le récit -->
+    <button onclick="toggleRecit()">Afficher le récit complet</button>
+
+    <!-- Boîte récit déroulante -->
+    <div id="recit" class="recit-box" style="display: none;">
+        <p>
+           Mon grand-père Séverin Werlin est né en Haute-Alsace à Lutterbach en 1872, il naît donc Allemand bien que ses parents restés en Alsace après l'annexion fussent de culture et nationalité française mais ils opteront pour l’Allemagne.
+           On a une photo de Séverin en uniforme de l’infanterie coloniale et Franz son frère en uniforme allemand Il grandit en Alsace et apprend le métier de mécanicien à Mulhouse
+à 18 ans il décide contrairement à son frère Franz de recouvrer la nationalité française et s'engage pour cela pour 5 ans dans l'armée française, à la légion étrangère.
+C'est le cas de beaucoup d'alsaciens nés après 1870 et restés en Alsace. Il participe aux campagnes du Dahomey
+(dixit l’oncle Marcel son fils mais c’est une erreur) et au Tonkin où une rare photo le montre caporal d'infanterie coloniale, décoré de la médaille coloniale, à Vinh-Long.
+C'est l'époque de la chasse aux pavillons noirs, dissidents tonkinois féroces, soutenus par les chinois. Libéré de ses obligations militaires et désormais français, par décret
+il s'installe à St Denis comme beaucoup d'Alsaciens expatriés, 15 rue de la Charronnerie. Au 16 de la même rue habite la famille Luthringer aussi Alsacienne réfugié de Bitchwiller les Thann en 1870
+après avoir séjourné quelques années à Lure. Romain Luthringer, sa fille Marie, sa seconde épouse et les 3 enfants de son second mariage 
+
+Une tragédie 
+Libéré en novembre 1898 Séverin Werlin épouse en 1899, Marie Luthringer, l’unique enfant de Romain Luthringer et de sa première épouse décédée Augustine Jacob. Un contrat de mariage est signé:
+ L'épouse apportant une dot confortable de l'héritage de sa mère, oncle et tante Jacob, soit 6.000 frs-environ 18.000 € d'aujourd'hui.
+ Il travaille alors à St Denis sans doute aux établissements de voitures de luxe Delaunay-Belleville.   Ils s'installent à Paris où S. Werlin travaille comme mécanicien automobile aux ateliers Boin
+ puis à Delaunay-Belleville fabricant d’automobiles à Clichy. 3 enfants naissent en 1900 Marcel, en 1901 Suzanne et en 1903 Lucie. Son épouse meurt à Paris 17 ième, 13 rue du docteur  peu après la troisième naissance.
+ Les 3 enfants sont confiés à Antoinette Luthringer la belle-sœur de S. Werlin à St Denis. Les rares visites qu'il rend à ses enfants s'espacent
+ mais il est encore présent en 1907 au mariage de son beau-frère Xavier Luthringer et apparaît à St Denis au café de la rue de la charronnerie, pendant la guerre en 1917, blessé au bras sans allez voir sa famille.
+ Il disparaît alors sans laisser de traces, aussi lorsque sa première fille se marie en 1922, il est déclaré absent  (c-a-d de sort inconnu) ainsi qu'aux mariages de ses 2 autres enfants en 1928 et 1929. 
+ Pourtant une correspondance familiale de sa sœur de 1915 laissait entendre qu'il comptait, une fois la guerre terminée, reprendre avec lui ses enfants.
+ Il habite à cette époque, rue Flatters à Paris. Il y héberge quelque temps son fils Marcel , scolarisé rue des feuillantines qui m’a raconté que son père vivait avec une Berthe pas très fidèle,
+ courtisée par un militaire et que de rage dans une scène terrible, il avait jeté sa belle robe dans le poêle ! Il travaillait en mécanique auto non loin de là. Bien qu'ayant 3 enfants, un frère et 3 sœurs,
+ aucun membre de la famille n'eut après 1917 de ses nouvelles. 
+ 
+
+En 1990 soit 73 ans après le dernier contact,  je décidais de retrouver la trace de mon grand-père. A son village natal de Lutterbach, pas de trace de mention marginale de décès à son acte de naissance: 
+On pouvait en déduire raisonnablement que le décès était survenu avant 1945 date de début des mentions marginales de décès aux actes de naissances.  
+Séverin Werlin au mariage de son beau-frère  Luthringer en 1907 en haut à droite.  
+Mamie et oncle Marcel en bas à gauche, Mon arrière grand père Romain Luthringer à droite de Mamie et à droite de Romain Antoinette sa fille  puis Xavier son fils et la mariée Marie Loguet   
+Comme il habitait Paris en 1915 dans le septième arrondissement, rue Flaters, je recherchais là son décès, sans succès. Comme j'hésitais à lancer sur les autres arrondissements et la banlieue
+sur une date aussi incertaine, je préférais rechercher trace de sa succession au centre parisien de l'enregistrement des successions qui est doté d'un fichier alphabétique de 10 en 10 ans 
+dont la consultation ne demande que quelques minutes, hélas sans succès. J'en déduisis qu'il n'était pas décédé à Paris ni en proche banlieue. Je tentais ma chance au fichier des expatriés à Nantes, 
+les Alsaciens étant de grands voyageurs, sans succès: Il n'était donc pas mort à l'étranger. Je tentais encore ma chance aux fichiers militaire du fort de Vincennes. 
+J'y appris au moins qu'il n'était pas parmi les morts de 1914-1918 ni parmi les pensionnés. Je pensais trouver aussi trace de son dossier militaire postérieurement à 1917 
+mais le manque d'éléments rendait cette recherche trop complexe sur des centaines de registres. 
+Parallèlement je retrouvais la trace de ses frères et sœurs à la succession de ses parents décédés en 1901 et 1906 en Alsace. La consultation de l'enregistrement de Mulhouse puis des archives foncières 
+me permirent de retrouver divers actes notariés de ces successions dont une procuration de Severin Werlin de 1907 passée à Paris devant notaire relative à des ventes de terrains en Alsace restés en indivis, 
+puis en 1924 une nouvelle vente qui laissait un doute sur l'existence de S. Werlin, enfin en 1935 encore une vente où il était déclaré absent et représenté par un notaire désigné. 
+Une trouvaille puis une impasse 
+Me trouvant dans une impasse après toutes ces recherches, je remis tout en question et profitant d'une proposition des archives municipales de Paris, 
+je lançais une recherche du décès sur l'ensemble des 20 arrondissements de Paris de 1917 depuis la date du dernier contact jusqu’à 1972 date à laquelle il aurait eu 100 ans.  
+Une surprise, après 2 mois je reçu l'acte de décès en août 1917 dans le 15 ième arrondissement, rue des bergers. C'était le premier indice positif après 3 ans de recherches...faute d'avoir été assez méthodique. 
+Fort de cette information, je recherchais sa sépulture tant aux cimetières parisiens qu'aux marbreries, pompes funèbres...sans succès. 
+Afin de trouver les circonstances de sa mort, je tentais de retrouver les 2 témoins cités à l'acte de décès: La concierge de l'immeuble et un ami du défunt. Je retrouvais trace de l'ami décédé en 1925 sans descendance. 
+Je tentais un mailing sur les locataires de l'immeuble: Une seule réponse positive d'une personne vivant là depuis 1925-quelques années trop tard- qui me signala la présence à l'époque de famille alsacienne. 
+Finalement ces recherches aboutissaient à une impasse. J'avais noté que le contrat de mariage prévoyait qu'au décès éventuel de l'époux, la dot retournerait à la famille de l'épouse, 
+d'autant que les enfants mineurs en 1917 incitaient normalement aussi à une recherche successorale. 
+Sur l’indication d’un archiviste des archives de Paris j’avais appris que les archives de l’enregistrement étaient déposées au centre des impôts place St Sulpice. ; 
+Je décidais d’y reprendre mes recherches à l'enregistrement des successions, passant outre cette fois à l'absence de références au fichier alphabétique, mais munis du lieu et date de décès. 
+En consultant les tables de successions de l'arrondissement concerné je trouvais l'enregistrement de la succession 
+mais déception pas de référence au registre de succession ce qui impliquait l'absence de biens immobiliers et sans doute un faible actif. 
+La table de succession révélait que S. Werlin  était veuf de Marie Luthringer, bizarrement sans référence à ses 3 enfants et contenait 3 messages sibyllins: 
+1-	Dépôt 26 frs août 1917: 211 (nota bene 26 frs à peu près 60 €) 
+2-	Vente Mbre: 1108, dec 1917: 209 (nota bene 1108 frs à peu près 3000 €)
+3-	S.A. vol 2/187
+Interrogé l'archiviste se déclara incompétent pour déterminer à quoi faisaient référence ces indications chiffrées (des références à des registres peut-être ?). 
+A l'examen la première référence indiquait vraisemblablement le dépôt de numéraire, 26 frs dépôt fait généralement à la perception, jusqu'à règlement de la succession. 
+Cette première indication sauf à retrouver trace du dépôt et de sa destination, semblait une voie difficile. Le salaire ouvrier qualifié est de 100 frs en 1914 
+ La deuxième référence me parut plus intéressante car elle semblait indiquer une vente mobilière en décembre de l'année du décès,  mais là encore à quoi le N° 209 se referait-il ? 
+Après une longue investigation aux domaines et aux hypothèques, il apparut que seules les ventes immobilières y étaient enregistrées et qu'avant 1949 
+les ventes mobilières étaient réalisées par des commissaires-priseurs choisis ou désignés. 
+En 1992 un nouvel archiviste de l'enregistrement me donna l'explication des références chiffrées que je recherchais: 
+Il s'agissait d'un N° de registres dits bordereaux de renvoi qui contiennent les pièces annexes de déclaration de successions. 
+Ces pièces accessibles au même endroit que les registres me révélèrent effectivement la collation de pièces comme ventes mobilières, relevés bancaires, actes notariés, actes de ventes...
+donnant tous les détails, lieux, noms des parties, dates...des actes concernés. Les ventes par commissaires-priseurs y figuraient avec le nom du commissaire- priseur, date, lieu de la vente, inventaire...
+Hélas les bordereaux parisiens ont été mis au pilon pour la période d'avant 1945. Je décidais toutefois de m'intéresser aux archives des commissaires-priseurs: 
+Une visite aux archives de Paris me révéla la présence de 100 commissaires-priseurs à Paris en 1917. De plus l'archiviste fut dans l'incapacité de me révéler le dépôt éventuel de leurs archives. 
+Je demandais au président de cette corporation l'autorisation de consulter et j'appris que les archives anciennes depuis 1800 étaient stockées au dépôt annexe de Ste Geneviève des bois. 
+Ces archives munis de registres d'index par période et noms des personnes concernées par la vente. J'y trouvais sans difficulté trace de la vente recherchée, un requérant Defresne inconnu, 
+le nom du commissaire-priseur Oudard et le montant de la vente 1108 frs valeur indiquée à l'enregistrement. L'archiviste me proposa de consulter le dossier correspondant, 
+hélas il n'était pas déposé mais j'appris au moins le nom du successeur après 1937 auprès de la compagnie des commissaires-priseurs, en regrettant de n'avoir pas engagé ces recherches avant cette date. 
+Contacté l’étude Million le successeur de Oudard m'informa dans un premier temps de l'absence de ces archives puis me signala que des archives de 1945 et avant peut-être étaient entreposées en garde-meuble d'accès difficile
+ mais me proposa une recherche ...dans un délai imprévisible. 
+En parallèle je m'intéressais à la troisième mention S.A. vol 2/187, la table de succession précise que dans cette rubrique est mentionné la date du certificat attestant que le défunt est sans actif (S.A.) 
+ou le N° de consignation au sommier ou mention spéciale en cas d'enfants mineurs (ce qui était le cas !) Mais pas trace de ce sommier ! 
+L'absence d'inventaire et de scellés fut confirmée en consultant les archives de la justice de paix du 15 ième arrt. 
+Faute de pouvoir retrouver les minutes du commissaire-priseur, les différents registres me permirent quand même de confirmer la vente aux enchères en salle des ventes
+ à Drouot pour un montant de 1108 frs somme modeste mais non négligeable que l'on peut évaluer à 1.000 € en 2015 et qui aurait été bien utile aux enfants orphelins. La vente était datée du 21/12/1917. 
+Le requérant de la vente, Mr Defresne était un inconnu pour moi, mais à l'examen des registres son nom apparaissait régulièrement comme requérant dans d'autres ventes pour le compte de diverses études. 
+Après examen d'autres ventes, les minutes me permirent d'identifier ce personnage. 
+Au passage je pu admirer la richesse des dossiers des commissaires-priseurs contenant le nom des héritiers, état civil, adresses, références aux actes notariés, testaments, inventaires, scellés, prisée de chaque objet ,
+sans oublier les pièces annexes comme affiches de publicité de mise en vente, bordereau d'enlèvement des meubles....et souvent une importante correspondance entre parties: Héritiers, notaires, avoués, huissiers... 
+Quelques réflexions 
+Un fait comme un décès est sauf exception rare suite à disparition toujours enregistré quelque part, ces documents existent, mais faute de clé d'accès ils sont souvent introuvables et on doit entreprendre 
+les recherches souvent au gré de sa fantaisie ou de son intuition sans à priori: Toute filière de recherche doit être tentée. 
+Suite de la recherche 
+La recherche de minutes d'autres commissaires-priseurs parisiens de la même époque me fit découvrir la qualité du requérant Defresne (requérant c-a-d le personnage ayant ordonné la vente). 
+C'était un administrateur judiciaire nommé par le tribunal civil de la Seine dans les affaires de succession litigieuses. Il fallait donc logiquement remonter aux décisions de ce tribunal conservées aux archives de Paris. 
+Par ailleurs il était intéressant de retrouver les archives de cet administrateur judiciaire. On trouve aujourd'hui une trentaine de ces administrateurs 
+mais la chambre syndicale ne put m'indiquer ni des administrateurs existant détenant les archives  
+Les archives des décisions du tribunal civil de la Seine sont aux archives de Paris. Il en existe un répertoire alphabétique, 
+c'est donc là qu'il fallait rechercher une décision du tribunal et la désignation de l'administrateur avec sans doute les motifs de la vente et la destination des biens. 
+Avant cette démarche, je me mis à imaginer toutes les circonstances qui avait pu amener à ce qu'aucun membre de la famille n'ait été prévenu du décès ni de la vente: 
+Plusieurs des frères et sœurs de S. Werlin qui habitaient l'Alsace, Paris et St Denis où habitaient ses enfants. Finalement la vérité n'avait-elle pas été cachée aux enfants
+ ou bien quelques tiers avaient-ils fait disparaître leur trace chez le défunt ou encore le défunt était-il endetté et dans ce cas la vente aurait pu couvrir ces dettes comme me l'avait 
+ suggéré un archiviste de l'enregistrement. La mort avait-elle été violente ou soudaine, le défunt n'avait que 45 ans ! 
+ La vente avait-elle été motivée par le séquestre de biens supposés allemand comme cela fut courant pendant la période 1914-1918, autant de questions sans réponses ! 
+ 
+De nouvelles recherches 
+Début 1993, je me rendis aux archives de Paris avec la certitude que les archives du tribunal civil me conduiraient à quelques découvertes, 
+je décidais aussi de consulter les archives du recrutement qui me mettrait peut-être sur la voie de l'affectation militaire jusqu'en 1917 et de son dossier matricule. 
+Aussi le recensement de 1915 et la liste électorale afin de trouver trace de son employeur qui aurait pu conserver quelque trace à son décès. 
+Hélas les archives judiciaires de 1917 du tribunal civil (7 bureaux plus 2 pour les mineurs), ni le recrutement, ni les autres filières ne donnèrent de résultat, 
+Le fichier index patronymique ne révéla rien ni à Werlin ni à Desfresne 
+Pour comble de malheur j'appris en avril 1993 que les ordonnances du tribunal civil n'ont pas été conservées avant 1923, car remises directement aux parties. 
+Le catalogue détaillé des ventes, enfin, se trouve archivé à l'hôtel de Sens: Toutefois la consultation s'est révélée négative car seules les ventes d'objets de valeur sont répertoriées. 
+On a cependant retrouvé le registre de nomination de l'administrateur judiciaire Desfresne, pour cette affaire au tribunal de grande instance (décision du 22-09-1917, N° de dossier 8578) 
+mais le dossier est introuvable au bureau des administrateurs judiciaires et des séquestres du tribunal de grande instance de Paris. 
+D'autres recherches comme la décision de réintégration dans la nationalité ni du dossier de décoration de la médaille coloniale n'ont rien donné jusqu'ici. 
+Les sommes numéraires , 26 frs, consignées ont pu en 1917 être remise à la caisse des dépôts d'après un archiviste, mais une fois encore aucune trace. 
+
+ 
+Cependant tout fini par s'éclaircir, au terme d'un nouveau contact avec le commissaire-priseur Millon successeur en 1937 de Oudard. 
+En 1995 ce dernier, au prix d'une recherche laborieuse et gracieuse m'a informé de la découverte du dossier recherché  
+Point positif: Le dossier contient: 
+*** L'ordonnance de vente de l'administrateur judiciaire Desfrèsne au commissaire-priseur Oudard 
+*** La référence du bulletin de publication de la vente 
+***  La Vente judiciaire selon ordonnance du 22 novembre 1917 du tribunal civil de Paris : Administrateur  judiciaire Mr Desfresne selon l’inventaire suivant : 
+1-Salle à manger 
+        1 Buffet à 2 corps ,1 table à rallonges, 6 chaises garnies de cuir, le tout en noyer sculpté 
+	 	1 suspension ,1 glace, 2 vases 
+	 	1 carpette, 4 assiettes décoratives 
+	 	1 pièce encadrée, 1 poêle à combustion lente 
+	 	1 service de table en faïence, 1 lot de verrerie dépareillé 
+	 	Couverts, 6 fourchettes en métal 5 cuillères et couteaux 
+2-Chambre à coucher 
+             1 lit en noyer et sa literie, une table de nuit 
+             1 armoire à glace en noyer 
+             1 pendule à colonne, 1 lampe,  
+             2 cache-pot en porcelaine, 1 jardinière en cuivre 
+             2 rideaux de vitrage 
+	       1 toilette et sa garniture, 1 descente de lit  
+             2 pièces de garde-robe 
+             Des draps, 50 pièces de  serviettes, torchons, chemises, mouchoirs
+			 1 montre en acier, manque le cadran !! 
+             1 bague chevalière avec un faux brillant 
+             1 bracelet-montre, 1 montre acier démontée,1 broche en cuivre  	
+             2 boucles d'oreilles avec faux diamants ,1 chaîne en cuivre 
+3-Cuisine 
+	 	     1 table
+		     1 buffet bois blanc ,1 lot d'ustensiles de cuisine en fer blanc émaillé 
+		
+Le tout vendu en salle des ventes le 21 décembre 1917 pour 1108 frs 
+Le dossier nous apprend en outre que les impôts de l'année précédant n'avaient pas été réglés rue Flatters dans le 15 ième arrondissement, 
+Séverin  n’habitait plus rue Flatters depuis 1913, On apprend en outre que le loyer était de 430 frs/ an et que les services d'hygiène de la ville de Paris avaient après décès procédé à la désinfection de l’appartement - 
+ce qui m'amène à penser que Séverin était mort de maladie très contagieuse (tuberculose ou grippe espagnole responsable de 60 millions de morts ? ) et que faute d'avoir pu retrouver sa tombe dans un cimetière parisien 
+il a pu être incinéré du fait de sa maladie. J’ai continué mes recherches en ce sens aux archives de Paris sans succès, mais hélas aucune référence à des papiers personnels ; Le résultat de la vente : 1108 frs 
+*** Un avis de désinfection de l'appartement du défunt par les services d'hygiène de la ville de Paris (cela m'a incité à penser à un décès par maladie contagieuse- 
+mais les services de la ville contactés n'ont pas retrouvé ces archives)  
+
+Point négatif: 
+*** L'ordonnance judiciaire n'était pas dans le dossier, qui aurait permis de connaître les attendus (cause et circonstances de la vente, 
+pourquoi ses enfants étaient ignorés) et la destination des fonds résultat de la vente 
+ Sans doute ces éléments se trouvent, s'ils existent encore, dans les archives de l'administrateur judiciaire dont il faudrait retrouver le successeur, 
+un jour peut-être je pourrais découvrir ce document ainsi que le lieu de sépulture et aussi son dossier militaire de son expédition au Tonkin que je compte bien trouver 
+ une fois que les archives auront été numérisées et indexées .encore 3 énigmes à résoudre avec patience. Bien que toute la vérité n’ait été entièrement établie, 
+ au moins une partie du voile qui recouvrait cette énigme a été levée. Dans cette recherche que de sources d’archives il m’a fallu consulter. 
+ Je crois que je ne retrouverai pas la destination de son corps par contre la numérisation en cours des registres militaires des corps d’armées du Shat de Vincennes 
+ me permettra sans doute de retrouver sa carrière militaire au Tonkin et en 1914 dans le corps de l’armée territoriale. 
+Puis enfin retrouvée -en 2019, 29 ans après le début de mes recherches aux archives numérisées de Paris- sa fiche matricule, engagé volontaire à Paris à la sous intendance au premier régiment étranger le 14-11-1893, 
+en Algérie de 1893 à 1895 puis au Tonkin de 1895 à 1898 puis de nouveau en Algérie pour quelques mois. Peut-être trouvera-t-on le détail de ses campagnes aux registres des troupes au SHAT. 
+Médaille coloniale « Tonkin » et certificat de bonne conduite,   
+  
+Il est nommé caporal en 1896. Mobilisé en 1915 dans une usine d’armement qui fabrique des obus mais des voitures électriques en temps de paix, 
+l’établissement Vidovelli-Priestley rue St Charles pas loin de son domicile rue des bergers. Il sera reconnu inapte au travail en 1916 pour bronchite suspecte puis réformé
+ pour tuberculose pulmonaire par la commission de réforme de la Seine. La tuberculose c’est sans doute ce qui a entrainé sa mort en 1917 rue les bergers. 
+ Il était brun, de yeux et cheveux ,de taille 1. 79 m et gaucher comme ma mère et moi. Il avait un fort accent alsacien et appelait sa fille zuzanne !
+Et Frantz son frère lui préféra devenir allemand et qui l'Alsace pour s'installer en Allemagne, il est en uniforme allemand sans doute vers 1914,
+il renonce devant notaire à tout héritage des frères et soeurs resté en Frnce et en Alsace occupée, des terres et une maison à Lutterbach au ruisseau du rutz Il aura 3 fils dont deux qui seront tués  en 39-45 sur le front russe. le troisieme n'aura qu'une fille Vera avec qui ma mère restera un contavt et moi une dernire fois vers 2015
+Frantz sera mobilisé en 1914 et se retrouve face à son frère dans cette gurre fratricide. Le trosieme fils de Frantz mobilisé dans l'aviation viendra à Paris en uniforme vers 1943et retrouvera mon oncle Marcel en peu géné de la situation		
+		
+
+        </p>
+    </div>
+
+    <script>
+        function toggleRecit() {
+            const box = document.getElementById("recit");
+            const button = document.querySelector("button");
+            if (box.style.display === "none") {
+                box.style.display = "block";
+                button.textContent = "Masquer le récit";
+            } else {
+                box.style.display = "none";
+                button.textContent = "Afficher le récit complet";
+            }
+        }
+    </script>
 </body>
 </html>
